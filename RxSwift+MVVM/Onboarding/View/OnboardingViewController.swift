@@ -11,8 +11,8 @@ class OnboardingViewController: UIViewController {
     
     static func instantiate() -> OnboardingViewController {
         let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! OnboardingViewController
-        return viewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self))
+        return viewController as? OnboardingViewController ?? OnboardingViewController()
     }
     
     override func viewDidLoad() {
