@@ -6,13 +6,11 @@
 //
 
 import UIKit
-
-
+ 
 class Launcher {
-    
     static func launch(with window: UIWindow?) {
-        if let nc = window?.rootViewController as? UINavigationController,
-            let authorizationVC = nc.viewControllers.first as? AuthorizationViewController {
+        if let navigationController = window?.rootViewController as? UINavigationController,
+            let authorizationVC = navigationController.viewControllers.first as? AuthorizationViewController {
             let viewModel = AuthorizationViewModel()
             authorizationVC.viewModel = viewModel
             authorizationVC.router = AuthorizationRouter()

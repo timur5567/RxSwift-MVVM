@@ -7,19 +7,17 @@
 
 import UIKit
 
-
 enum AuthorizationSegue {
-
     case registration
     case onboarding
 }
 
-protocol LoginRouter {
+protocol AuthRouter {
     
     func perform(_ segue: AuthorizationSegue, from source: AuthorizationViewController)
 }
 
-class AuthorizationRouter: LoginRouter {
+class AuthorizationRouter: AuthRouter {
     
     func perform(_ segue: AuthorizationSegue, from source: AuthorizationViewController) {
         switch segue {

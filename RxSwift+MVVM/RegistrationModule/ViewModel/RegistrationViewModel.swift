@@ -8,13 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-
-protocol ViewModelType {
-    associatedtype Input
-    associatedtype Output
-    
-    func transform(input: Input) -> Output
-}
+import Swinject
 
 class RegistrationViewModel: ViewModelType {
     
@@ -23,8 +17,13 @@ class RegistrationViewModel: ViewModelType {
     private let authorizationSuccessRelay = PublishRelay<Void>()
     
     private let decimalCharacter = CharacterSet.decimalDigits
-    private let userDefaults = UserDefaultService()
     private let disposeBag = DisposeBag()
+    
+    var service: Service?
+    
+    init() {
+        setupService()
+    }
     
     struct Input {
         let name: Observable<String>
@@ -58,6 +57,11 @@ private extension RegistrationViewModel {
     
     var authorizationSuccess: Driver<Void> {
         authorizationSuccessRelay.asDriver(onErrorDriveWith: Driver.never())
+    }
+    
+    func setupService() {
+        let services = Container.sharedContainer.resolve(Services.self)
+        service = services?.userDefaults
     }
     
     func isValid(input: Input) -> Driver<Bool> {
@@ -95,7 +99,7 @@ private extension RegistrationViewModel {
         input.registerButtonTap
             .withLatestFrom(Observable.combineLatest(input.name, input.email, input.password))
             .asObservable().subscribe(onNext: { [weak self] name, email, password in
-                self?.userDefaults.registrationUser(name: name, email: email, password: password)
+                self?.service?.saveUser(name: name, email: email, password: password)
                 self?.authorizationSuccessRelay.accept(())
             }
         ).disposed(by: disposeBag)

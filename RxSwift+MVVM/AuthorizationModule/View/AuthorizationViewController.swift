@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Swinject
 
 class AuthorizationViewController: UIViewController {
     
@@ -17,31 +18,34 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak private var registrationButton: UIButton!
     @IBOutlet weak private var errorLabel: UILabel!
     
+    private let disposeBag = DisposeBag()
+    
     var viewModel: AuthorizationViewModel?
     var router: AuthorizationRouter?
-    
-    private let disposeBag = DisposeBag()
-    private let userDefault = UserDefaultService()
+    var service: Service?
     
     static func instantiate() -> AuthorizationViewController {
-        let storyboard = UIStoryboard(name: "Authorization", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.Authorization.rawValue, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self))
         return viewController as? AuthorizationViewController ?? AuthorizationViewController()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtons()
         setupButtonsAction()
         configureBindings()
+        setupContainer()
         
-        loginTextField.text = userDefault.registrationModel?.name
-        passwordTextField.text = userDefault.registrationModel?.password
-    }
-    
-    private func setupButtons() {
         authorizationButton.layer.cornerRadius = 10
         registrationButton.layer.cornerRadius = 10
+        
+        loginTextField.text = service?.getUser()?.name
+        passwordTextField.text = service?.getUser()?.password
+    }
+    
+    private func setupContainer() {
+        let services = Container.sharedContainer.resolve(Services.self)
+        service = services?.userDefaults
     }
     
     private func setupButtonsAction() {

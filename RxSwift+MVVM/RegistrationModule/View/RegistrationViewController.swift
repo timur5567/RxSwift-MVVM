@@ -25,7 +25,7 @@ class RegistrationViewController: UIViewController {
     var router: RegistrationRouter?
     
     static func instantiate() -> RegistrationViewController {
-        let storyboard = UIStoryboard(name: "Registration", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.Registration.rawValue, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self))
         return viewController as? RegistrationViewController ?? RegistrationViewController()
     }
