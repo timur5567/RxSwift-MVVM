@@ -7,5 +7,6 @@ target 'RxSwift+MVVM' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Swinject' 
 
 end
