@@ -16,9 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🐺Добро пожаловать!🦄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFF-bV-Alf">
-                                <rect key="frame" x="70.5" y="442" width="273.5" height="22"/>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приветствие" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFF-bV-Alf">
+                                <rect key="frame" x="60" y="441" width="294" height="24"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -26,10 +26,15 @@
                         <viewLayoutGuide key="safeArea" id="dEC-gv-3Tl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dEC-gv-3Tl" firstAttribute="trailing" secondItem="ZFF-bV-Alf" secondAttribute="trailing" constant="60" id="2kn-YI-14d"/>
+                            <constraint firstItem="ZFF-bV-Alf" firstAttribute="leading" secondItem="dEC-gv-3Tl" secondAttribute="leading" constant="60" id="JYv-06-jgn"/>
                             <constraint firstItem="ZFF-bV-Alf" firstAttribute="centerY" secondItem="dEC-gv-3Tl" secondAttribute="centerY" id="oKJ-pU-RKv"/>
                             <constraint firstItem="ZFF-bV-Alf" firstAttribute="centerX" secondItem="dEC-gv-3Tl" secondAttribute="centerX" id="tk5-n0-HPh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greetingLabel" destination="ZFF-bV-Alf" id="Opw-lL-By5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtG-Ve-qPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

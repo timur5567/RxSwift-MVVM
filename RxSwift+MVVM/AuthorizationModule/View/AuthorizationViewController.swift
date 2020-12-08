@@ -33,7 +33,7 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonsAction()
-        setupContainer()
+        setupService()
         configureBindings()
         
         authorizationButton.layer.cornerRadius = 10
@@ -52,7 +52,7 @@ class AuthorizationViewController: UIViewController {
             ).disposed(by: disposeBag)
     }
     
-    private func setupContainer() {
+    private func setupService() {
         let services = Container.sharedContainer.resolve(Services.self)
         service = services?.userDefaults
     }
