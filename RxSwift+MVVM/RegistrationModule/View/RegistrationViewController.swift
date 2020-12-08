@@ -11,13 +11,13 @@ import RxCocoa
 
 class RegistrationViewController: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak private var nameTextField: UITextField!
+    @IBOutlet weak private var emailTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var repeatPasswordTextField: UITextField!
     
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak private var registerButton: UIButton!
+    @IBOutlet weak private var errorLabel: UILabel!
         
     private let disposeBag = DisposeBag()
     

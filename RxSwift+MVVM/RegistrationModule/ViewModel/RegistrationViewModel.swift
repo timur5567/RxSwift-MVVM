@@ -19,7 +19,7 @@ class RegistrationViewModel: ViewModelType {
     private let decimalCharacter = CharacterSet.decimalDigits
     private let disposeBag = DisposeBag()
     
-    var service: Service?
+    private var service: Service?
     
     init() {
         setupService()

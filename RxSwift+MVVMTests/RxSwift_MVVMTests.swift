@@ -10,15 +10,18 @@ import XCTest
 
 class RxSwift_MVVMTests: XCTestCase {
     
+//MARK:- Test UserDefaultsService
+    
     func testSaveUser() {
         let userDefaults = UserDefaultsService()
         let save = userDefaults.saveUser(name: "User", email: "user123@mail.ru", password: "123456789")
-        XCTAssertEqual(true, save)
+        XCTAssertTrue(save)
     }
     
     func testGetUser() {
         let userDefaults = UserDefaultsService()
         let user = userDefaults.getUser()
-        XCTAssertNotEqual(nil, user)
+        XCTAssertNotNil(user)
     }
 }
+

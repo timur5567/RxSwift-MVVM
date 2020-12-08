@@ -19,10 +19,10 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak private var errorLabel: UILabel!
     
     private let disposeBag = DisposeBag()
+    private var service: Service?
     
     var viewModel: AuthorizationViewModel?
     var router: AuthorizationRouter?
-    var service: Service?
     
     static func instantiate() -> AuthorizationViewController {
         let storyboard = UIStoryboard(name: Storyboard.Authorization.rawValue, bundle: nil)

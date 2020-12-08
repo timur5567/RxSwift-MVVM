@@ -17,7 +17,7 @@ class AuthorizationViewModel: ViewModelType {
     private let authorizationErrorRelay = PublishRelay<Void>()
     private let disposeBag = DisposeBag()
     
-    var service: Service?
+    private var service: Service?
     
     init() {
         setupService()
