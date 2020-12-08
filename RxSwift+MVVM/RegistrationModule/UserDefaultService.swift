@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import RxSwift
 
 class UserDefaultsService: Service {
-    
     func saveUser(name: String, email: String, password: String) -> Bool {
         let defaults = UserDefaults.standard
         let registrationModel = RegistrationModel(name: name, email: email, password: password)

@@ -7,18 +7,16 @@
 
 import UIKit
 
+
 enum RegistrationSegue {
-    
     case authorization
 }
 
 protocol RegisterRouter {
-    
     func perform(_ segue: RegistrationSegue, from source: RegistrationViewController)
 }
 
 class RegistrationRouter: RegisterRouter {
-    
     func perform(_ segue: RegistrationSegue, from source: RegistrationViewController) {
         switch segue {
         case .authorization:

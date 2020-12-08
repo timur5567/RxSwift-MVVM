@@ -15,14 +15,14 @@ class AuthorizationViewModel: ViewModelType {
     private let messageSubject = BehaviorSubject<String>(value: "")
     private let authorizationSuccessRelay = PublishRelay<Void>()
     private let authorizationErrorRelay = PublishRelay<Void>()
-    private let disposeBag = DisposeBag()
     
+    private let disposeBag = DisposeBag()
     private var service: Service?
     
     init() {
         setupService()
     }
-    
+
     struct Input {
         let name: Observable<String>
         let password: Observable<String>

@@ -23,7 +23,7 @@ class AuthorizationViewController: UIViewController {
     
     var viewModel: AuthorizationViewModel?
     var router: AuthorizationRouter?
-    
+
     static func instantiate() -> AuthorizationViewController {
         let storyboard = UIStoryboard(name: Storyboard.Authorization.rawValue, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self))
@@ -33,19 +33,14 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonsAction()
-        configureBindings()
         setupContainer()
+        configureBindings()
         
         authorizationButton.layer.cornerRadius = 10
         registrationButton.layer.cornerRadius = 10
         
         loginTextField.text = service?.getUser()?.name
         passwordTextField.text = service?.getUser()?.password
-    }
-    
-    private func setupContainer() {
-        let services = Container.sharedContainer.resolve(Services.self)
-        service = services?.userDefaults
     }
     
     private func setupButtonsAction() {
@@ -56,14 +51,19 @@ class AuthorizationViewController: UIViewController {
                 }
             ).disposed(by: disposeBag)
     }
+    
+    private func setupContainer() {
+        let services = Container.sharedContainer.resolve(Services.self)
+        service = services?.userDefaults
+    }
 
     private func configureBindings() {
         let output = viewModel?.transform(input: AuthorizationViewModel.Input(name: loginTextField.rx.text.orEmpty.asObservable(),
                                                                              password: passwordTextField.rx.text.orEmpty.asObservable(),
                                                                              authorizationButtonTap: authorizationButton.rx.tap.asObservable()))
         
-        output?.authorizationError.drive(onNext: errorAnimation).disposed(by: disposeBag)
         output?.authorizationSuccess.drive(onNext: authorizationSuccess).disposed(by: disposeBag)
+        output?.authorizationError.drive(onNext: errorAnimation).disposed(by: disposeBag)
     }
 
     private func authorizationSuccess() {

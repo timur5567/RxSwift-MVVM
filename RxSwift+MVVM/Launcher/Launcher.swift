@@ -6,7 +6,7 @@
 //
 
 import UIKit
- 
+
 class Launcher {
     static func launch(with window: UIWindow?) {
         if let navigationController = window?.rootViewController as? UINavigationController,

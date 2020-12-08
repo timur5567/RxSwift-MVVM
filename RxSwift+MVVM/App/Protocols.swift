@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum Storyboard: String {
-    case Authorization
-    case Registration
-    case Onboarding
-}
-
 protocol ViewModelType {
     associatedtype Input
     associatedtype Output
@@ -24,3 +18,11 @@ protocol Service {
     func getUser() -> RegistrationModel?
     func saveUser(name: String, email: String, password: String) -> Bool
 }
+
+enum Storyboard: String {
+    case Authorization
+    case Registration
+    case Onboarding
+}
+
+

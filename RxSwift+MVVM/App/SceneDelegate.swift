@@ -11,13 +11,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         Launcher.launch(with: window)
         
         guard (scene as? UIWindowScene) != nil else { return }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -2,7 +2,7 @@
 //  RxSwift_MVVMTests.swift
 //  RxSwift+MVVMTests
 //
-//  Created by msoft on 04.12.2020.
+//  Created by msoft on 08.12.2020.
 //
 
 import XCTest
@@ -24,4 +24,3 @@ class RxSwift_MVVMTests: XCTestCase {
         XCTAssertNotNil(user)
     }
 }
-

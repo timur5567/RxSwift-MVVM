@@ -13,12 +13,10 @@ enum AuthorizationSegue {
 }
 
 protocol AuthRouter {
-    
     func perform(_ segue: AuthorizationSegue, from source: AuthorizationViewController)
 }
 
 class AuthorizationRouter: AuthRouter {
-    
     func perform(_ segue: AuthorizationSegue, from source: AuthorizationViewController) {
         switch segue {
         case .registration:
@@ -33,7 +31,6 @@ class AuthorizationRouter: AuthRouter {
 }
 
 private extension AuthorizationRouter {
-    
     static func makeRegistrationViewController() -> UINavigationController {
         let viewController = RegistrationViewController.instantiate()
         viewController.router = RegistrationRouter()

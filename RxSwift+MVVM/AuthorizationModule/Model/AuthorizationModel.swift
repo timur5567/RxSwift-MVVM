@@ -1,8 +1,9 @@
 //
-//  AuthorizationModel.swift
+//  AuthorizationData.swift
 //  RxSwift+MVVM
 //
-//  Created by msoft on 08.12.2020.
+//  Created by msoft on 23.11.2020.
 //
 
 import Foundation
+

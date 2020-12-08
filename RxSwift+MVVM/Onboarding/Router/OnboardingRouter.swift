@@ -12,7 +12,6 @@ enum OnboardingSegue {
 }
 
 protocol OnboardRouter {
-    
     func perform(_ segue: OnboardingSegue, from source: OnboardingViewController)
 }
 
@@ -25,4 +24,3 @@ class OnboardingRouter: OnboardRouter {
 private extension OnboardingRouter {
     
 }
-
