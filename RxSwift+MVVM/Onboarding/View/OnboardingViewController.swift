@@ -25,9 +25,9 @@ class OnboardingViewController: UIViewController {
         setupService()
         registerCells()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.tableFooterView = UIView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
     }
     
     private func registerCells() {
@@ -42,6 +42,10 @@ class OnboardingViewController: UIViewController {
 }
 
 extension OnboardingViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }

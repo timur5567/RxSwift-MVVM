@@ -238,6 +238,8 @@
 		C53DB964256C1255004C5988 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C53DB965256C1277004C5988 /* OnboardingViewController.swift */,
+				C5D7D1BA2580BF2B0006BB87 /* Onboarding.xib */,
 				C5D7DEA42581F7EB00277A28 /* Cells */,
 			);
 			path = View;
@@ -325,8 +327,6 @@
 		C5D7DEA42581F7EB00277A28 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C53DB965256C1277004C5988 /* OnboardingViewController.swift */,
-				C5D7D1BA2580BF2B0006BB87 /* Onboarding.xib */,
 				C5D7DEBD25820D3400277A28 /* UserInfoTableViewCell */,
 				C5D7DEBE25820D4B00277A28 /* ButtonsTableViewCell */,
 				C5D7DEC725820D7900277A28 /* TextTableViewCell */,
