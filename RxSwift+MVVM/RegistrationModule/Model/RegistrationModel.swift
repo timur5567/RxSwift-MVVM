@@ -10,7 +10,7 @@ import Foundation
 class RegistrationModel: NSObject, NSCoding {
 
     var name: String
-    let email: String
+    var email: String
     var password: String
     
     init(name: String, email: String, password: String) {

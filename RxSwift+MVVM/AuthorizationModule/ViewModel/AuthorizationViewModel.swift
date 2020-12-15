@@ -53,19 +53,22 @@ private extension AuthorizationViewModel {
     }
     
     func setupService() {
-        let services = Container.sharedContainer.resolve(Services.self)
-        service = services?.userDefaults
+        service = Container.sharedContainer.resolve(Services.self)?.userDefaults
     }
     
     func handleAuthorizationButtonTap(input: Input) {
         input.authorizationButtonTap
             .withLatestFrom(Observable.combineLatest(input.name, input.password))
             .asObservable().subscribe(onNext: { [weak self] name, password in
-                if name == self?.service?.getUser()?.name && password == self?.service?.getUser()?.password {
-                    self?.authorizationSuccessRelay.accept(())
-                } else {
-                    self?.authorizationErrorRelay.accept(())
-                }
+                self?.loginVerification(name: name, password: password)
             }).disposed(by: disposeBag)
+    }
+    
+    func loginVerification(name: String, password: String) {
+        if name == self.service?.getUser()?.name && password == self.service?.getUser()?.password {
+            self.authorizationSuccessRelay.accept(())
+        } else {
+            self.authorizationErrorRelay.accept(())
+        }
     }
 }

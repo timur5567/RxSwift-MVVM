@@ -16,19 +16,13 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var repeatPasswordTextField: UITextField!
     
-    @IBOutlet weak private var registerButton: UIButton!
     @IBOutlet weak private var errorLabel: UILabel!
-        
+    @IBOutlet weak private var registerButton: UIButton!
+
     private let disposeBag = DisposeBag()
     
     var viewModel: RegistrationViewModel?
     var router: RegistrationRouter?
-    
-    static func instantiate() -> RegistrationViewController {
-        let storyboard = UIStoryboard(name: Storyboard.Registration.rawValue, bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self))
-        return viewController as? RegistrationViewController ?? RegistrationViewController()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

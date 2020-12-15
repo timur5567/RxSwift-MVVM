@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 enum RegistrationSegue {
     case authorization
 }

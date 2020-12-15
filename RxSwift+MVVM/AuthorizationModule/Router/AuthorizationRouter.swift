@@ -32,7 +32,7 @@ class AuthorizationRouter: AuthRouter {
 
 private extension AuthorizationRouter {
     static func makeRegistrationViewController() -> UINavigationController {
-        let viewController = RegistrationViewController.instantiate()
+        let viewController = RegistrationViewController(nibName: NibName.registration.rawValue, bundle: nil)
         viewController.router = RegistrationRouter()
         viewController.viewModel = RegistrationViewModel()
         let navigationController = UINavigationController(rootViewController: viewController)
@@ -41,7 +41,8 @@ private extension AuthorizationRouter {
     }
     
     static func makeOnboardingViewController() -> UINavigationController {
-        let viewController = OnboardingViewController.instantiate()
+        let viewController = OnboardingViewController(nibName: NibName.onboarding.rawValue, bundle: nil)
+        viewController.viewModel = OnboardingViewModel()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalTransitionStyle = .flipHorizontal
         navigationController.modalPresentationStyle = .fullScreen

@@ -9,11 +9,13 @@ import UIKit
 
 class Launcher {
     static func launch(with window: UIWindow?) {
-        if let navigationController = window?.rootViewController as? UINavigationController,
-            let authorizationVC = navigationController.viewControllers.first as? AuthorizationViewController {
-            let viewModel = AuthorizationViewModel()
-            authorizationVC.viewModel = viewModel
-            authorizationVC.router = AuthorizationRouter()
-        }
+        let authorizationVC = AuthorizationViewController(nibName: NibName.authorization.rawValue, bundle: nil)
+        authorizationVC.viewModel = AuthorizationViewModel()
+        authorizationVC.router = AuthorizationRouter()
+        let navigationController = UINavigationController(rootViewController: authorizationVC)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 }
+
+

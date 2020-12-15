@@ -1,5 +1,5 @@
 //
-//  AuthorizationData.swift
+//  AuthorizationModel.swift
 //  RxSwift+MVVM
 //
 //  Created by msoft on 23.11.2020.

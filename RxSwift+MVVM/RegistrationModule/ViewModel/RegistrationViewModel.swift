@@ -60,8 +60,7 @@ private extension RegistrationViewModel {
     }
     
     func setupService() {
-        let services = Container.sharedContainer.resolve(Services.self)
-        service = services?.userDefaults
+        service = Container.sharedContainer.resolve(Services.self)?.userDefaults
     }
     
     func isValid(input: Input) -> Driver<Bool> {
@@ -99,7 +98,7 @@ private extension RegistrationViewModel {
         input.registerButtonTap
             .withLatestFrom(Observable.combineLatest(input.name, input.email, input.password))
             .asObservable().subscribe(onNext: { [weak self] name, email, password in
-                self?.service?.saveUser(name: name, email: email, password: password)
+                print(self?.service?.saveUser(name: name, email: email, password: password) ?? false)
                 self?.authorizationSuccessRelay.accept(())
             }
         ).disposed(by: disposeBag)

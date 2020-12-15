@@ -19,10 +19,10 @@ protocol Service {
     func saveUser(name: String, email: String, password: String) -> Bool
 }
 
-enum Storyboard: String {
-    case Authorization
-    case Registration
-    case Onboarding
+enum NibName: String {
+    case authorization = "Authorization"
+    case registration = "Registration"
+    case onboarding = "Onboarding"
 }
 
 
